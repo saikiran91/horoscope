@@ -1,5 +1,6 @@
 import urllib2
 from datetime import datetime
+from pytz import timezone
 
 from lxml import etree
 import re
@@ -24,11 +25,12 @@ class Horoscope:
             "//*[@id=\"main-wrapper\"]/div[4]/div/div[1]/section/div[2]/div[1]/div/div[1]/span/text()"))
         horoscope = horoscope.replace("[u'", "").replace("']", "")
         horoscope = horoscope.replace("Ganesha", "God")
+        Asia_Calcutta = timezone('Asia/Calcutta')
         dict = {
             'date': date,
             'horoscope': horoscope,
             'sunsign': sunsign,
-            'createdAt': datetime.now()
+            'createdAt': datetime.now(Asia_Calcutta)
         }
 
         return dict
