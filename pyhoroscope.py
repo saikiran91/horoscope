@@ -1,4 +1,6 @@
 import urllib2
+from datetime import datetime
+
 from lxml import etree
 import re
 
@@ -25,7 +27,8 @@ class Horoscope:
         dict = {
             'date': date,
             'horoscope': horoscope,
-            'sunsign': sunsign
+            'sunsign': sunsign,
+            'createdAt': datetime.now()
         }
 
         return dict
