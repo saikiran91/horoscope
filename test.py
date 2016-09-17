@@ -1,8 +1,6 @@
 from pymongo import MongoClient
 from datetime import datetime
-
 from pytz import timezone
-
 from pyhoroscope import Horoscope as horo
 
 sunSigns = ["aries", "taurus", "gemini", "cancer", "leo", "virgo",
@@ -16,7 +14,7 @@ client = MongoClient()
 def add_to_mongo(horoscope_list):
     db = client.Horoscope
     dateId = horoscope_list[0].get("date")
-    print dateId
+    print  dateId
     asia_calcutta = timezone('Asia/Calcutta')
     horoscope_item = {
         'date': dateId,
