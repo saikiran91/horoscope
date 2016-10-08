@@ -20,8 +20,9 @@ class Horoscope:
         date = date.replace("['(", "").replace(")']", "")
         horoscope = str(tree.xpath(
             "//*[@id=\"main-wrapper\"]/div[4]/div/div[1]/section/div[2]/div[1]/div/div[1]/span/text()"))
-        horoscope = horoscope.replace("['", "").replace("']", "")
-        horoscope = horoscope.replace("Ganesha", "*God*")
+        horoscope = horoscope.replace("['", "").replace("']", "").replace("[u'", "").replace("'u]", "").strip()
+        horoscope = horoscope.replace("Ganesha", "0godname0")
+        print (horoscope)
         dict = {
             'date': date,
             'horoscope': horoscope,
@@ -30,7 +31,7 @@ class Horoscope:
 
         return dict
 
-    @staticmethod #Make sure to chang the url also
+    @staticmethod  # Make sure to chang the url also
     def get_tomorrow_horoscope(sunsign):
         url = "http://www.ganeshaspeaks.com/" + sunsign + \
               "/" + sunsign + "-tomorrow-horoscope.action"
@@ -42,8 +43,8 @@ class Horoscope:
         date = date.replace("['(", "").replace(")']", "")
         horoscope = str(tree.xpath(
             "//*[@id=\"main-wrapper\"]/div[4]/div/div[1]/section/div[2]/div[1]/div/div[1]/span/text()"))
-        horoscope = horoscope.replace("['", "").replace("']", "")
-        horoscope = horoscope.replace("Ganesha", "*God*")
+        horoscope = horoscope.replace("['", "").replace("']", "").replace("[u'", "").replace("'u]", "").strip()
+        horoscope = horoscope.replace("Ganesha", "0godname0")
         dict = {
             'date': date,
             'horoscope': horoscope,

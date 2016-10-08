@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 from datetime import datetime
 from pytz import timezone
+import re
 from pyhoroscope import Horoscope as horo
 
 sunSigns = ["aries", "taurus", "gemini", "cancer", "leo", "virgo",
